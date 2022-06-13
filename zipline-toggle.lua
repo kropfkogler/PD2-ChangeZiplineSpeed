@@ -1,13 +1,16 @@
+local zipline_speed = Zipline_speed_low
+
+if Zipline_speed_toggled then
+    zipline_speed = Zipline_speed_high
+end
+
+
 function ZipLine:update(unit, t, dt)
     if not self._enabled then
         return
     end
 
-    if Zipline_speed_toggled then
-        self._speed = Zipline_speed_low
-    else
-        self._speed = Zipline_speed_high
-    end
+    self._speed = zipline_speed
     
     self:_update_total_time()
     
@@ -20,3 +23,4 @@ function ZipLine:update(unit, t, dt)
 end
 
 Zipline_speed_toggled = not Zipline_speed_toggled
+managers.chat:_receive_message(ChatManager.GAME, "[Ziplines]", "Speed set to " .. zipline_speed .. " cm/s", Color.green)
