@@ -1,0 +1,26 @@
+{
+	"name": "Zipline Speed Changer",
+	"description": "Change the speed of the ziplines with the push of a button.",
+	"author": "kropfm",
+	"contact": "https://github.com/kropfkogler",
+	"version": "0.1",
+	"blt_version": 2,
+	"hooks": [
+		{
+			"hook_id": "lib/managers/menumanager",
+			"script_path": "zipline-globals.lua"
+		}
+	],
+	"keybinds": [
+		{
+			"keybind_id": "keybind_example_test_one",
+			"name": ">Keybind 1",
+			"description": "Toggles the speed of ziplines.",
+			"hook_id": "lib/units/props/zipline",
+			"script_path": "zipline-toggle.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"localized": false
+		}
+	]
+}
